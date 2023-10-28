@@ -29,5 +29,5 @@ jobs:
     - name: Archive Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: app-artifact
+        name: app-publish
         path: ./src/app-publish
