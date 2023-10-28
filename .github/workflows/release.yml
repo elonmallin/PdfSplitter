@@ -16,11 +16,12 @@ jobs:
         with:
           workflow: publish.yml
           name: app-publish
+          path: app-publish
 
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./app-publish/PdfSplitter.exe
+          files: app-publish/PdfSplitter.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
