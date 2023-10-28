@@ -11,6 +11,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
+          workflow: publish.yml
           name: app-publish
 
       - name: Create GitHub Release
