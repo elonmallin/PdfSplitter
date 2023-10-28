@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Download Artifact
-        uses: dawidd6/download-artifact@v2
+        uses: dawidd6/action-download-artifact@v2
         with:
           workflow: publish.yml
           name: app-publish
