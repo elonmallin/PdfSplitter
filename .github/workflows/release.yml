@@ -1,5 +1,8 @@
 name: Create GitHub Release
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   push:
@@ -23,5 +26,3 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: app-publish/PdfSplitter.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
