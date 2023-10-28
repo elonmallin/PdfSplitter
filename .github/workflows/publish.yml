@@ -1,0 +1,33 @@
+name: Publish .NET Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+
+    - name: Publish
+      run: |
+        cd src
+        dotnet publish -c Release -o ./app-publish
+        echo "##[group]Contents of ./app-publish"
+        ls -R ./app-publish
+        echo "##[endgroup]"
+
+    - name: Archive Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-artifact
+        path: ./app-publish
