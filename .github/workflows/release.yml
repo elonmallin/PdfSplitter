@@ -2,6 +2,9 @@ name: Create GitHub Release
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - "v*.*.*"
 
 jobs:
   create_release:
@@ -18,6 +21,6 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./app-publish
+          files: ./app-publish/PdfSplitter.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
